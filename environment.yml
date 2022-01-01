@@ -1,0 +1,14 @@
+name: air
+channels:
+  - conda-forge 
+dependencies:
+  - python=3.9
+  - jupyterlab
+  - geopandas
+  - pygeos
+  - matplotlib
+  - contextily
+  - pandas
+  - tweepy
+  - python-dotenv
+  - requests

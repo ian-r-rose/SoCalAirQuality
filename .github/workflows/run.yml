@@ -1,0 +1,32 @@
+name: Tweet air quality
+
+on:
+  schedule:
+    - cron: "47 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  test-report:
+    name: Tweet air quality
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Conda Environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
+          python-version: 3.9
+          environment-file: environment.yml
+          activate-environment: air
+
+      - name: mamba list
+        shell: bash -l {0}
+        run: mamba list
+
+      - name: Send tweet
+        shell: bash -l {0}
+        run: |
+          jupyter execute purpleair.ipynb
