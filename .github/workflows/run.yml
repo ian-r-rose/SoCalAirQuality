@@ -3,6 +3,7 @@ name: Tweet air quality
 on:
   schedule:
     - cron: "33 * * * *"
+    - cron: "7 */3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -25,6 +26,10 @@ jobs:
       - name: mamba list
         shell: bash -l {0}
         run: mamba list
+
+      - name: Maybe set districts env
+        if: github.event_name == 'schedule' && github.event.schedule == '7 */3 * * *'
+        run: echo DISTRICT_TYPE=SUPERVISORIAL >> $GITHUB_ENV
 
       - name: Send tweet
         shell: bash -l {0}
