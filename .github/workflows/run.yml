@@ -2,7 +2,7 @@ name: Tweet air quality
 
 on:
   schedule:
-    - cron: "57 0,1,2,3,13-23 * * *"
+    - cron: "33 * * * *"
   workflow_dispatch:
 
 jobs:
