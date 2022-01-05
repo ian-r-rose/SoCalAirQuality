@@ -28,7 +28,7 @@ jobs:
         run: mamba list
 
       - name: Maybe set districts env
-        if: github.event_name == 'schedule' && github.event.schedule == '7 */3 * * *'
+        if: github.event_name == 'schedule' && github.event.schedule == '7 */4 * * *'
         run: echo DISTRICT_TYPE=SUPERVISORIAL >> $GITHUB_ENV
 
       - name: Send tweet
