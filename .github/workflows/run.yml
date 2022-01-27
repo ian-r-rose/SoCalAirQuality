@@ -41,3 +41,4 @@ jobs:
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
         run: |
           jupyter execute purpleair.ipynb
+      - uses: gautamkrishnar/keepalive-workflow@master # Keep alive
